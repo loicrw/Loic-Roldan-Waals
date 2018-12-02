@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# import all packages
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -7,10 +7,10 @@ import pandas as pd
 import numpy as np
 
 
-
+# set the working directory so for easier file loading and saving
 wd = "C:/Users/lroldanwaa001/Desktop/Data Analytics/Random Problems/Scraping/"
 
-# copied from the webs
+# search method copied from the web and adapted for this use case
 class google:
     @classmethod
     #get the movie urls
@@ -26,8 +26,7 @@ def movieAttributes(adres):
     #go to the page and extract the info
     page = requests.get(adres)
     soup = BeautifulSoup(page.content, "html.parser")
-    
-    
+        
     #find and clean genres
     info = str(soup.find('script', attrs={'type': 'application/ld+json'}))
     try:
@@ -49,7 +48,7 @@ def movieAttributes(adres):
         ratingImdb = np.nan
     
     
-    #get the metascore and number of reviews
+    #get the metascore for good, mixed and bad reviews
     try:
         metascore = str(soup.find('div', attrs={'class': 'metacriticScore score_mixed titleReviewBarSubItem'}))
         metascore = int(metascore.split('<span>')[1].split('</span>')[0])
@@ -58,7 +57,6 @@ def movieAttributes(adres):
     
     if np.isnan(metascore):         
         try:
-            #get the metascore and number of reviews
             metascore = str(soup.find('div', attrs={'class': 'metacriticScore score_favorable titleReviewBarSubItem'}))
             metascore = int(metascore.split('<span>')[1].split('</span>')[0])
         except:
@@ -88,17 +86,19 @@ def preptxt(x):
     x = x.replace('++', '+')
     return x
 
-# get the urls of the list of movies
+# get the urls of the list of all the movies
 def getUrls(lst):
     urlList = []
     i=0
+    
     for title in lst:
         i+=1
+        # add a counter to view progress
         print(str(i) + ' out of ' + str(len(lst)) + ' movies done')
         urlList.append(google.search(title)[0][0].split('&sa=')[0])
     return urlList
 
-# get the attributes for the list of movies
+# get the attributes for the list of all the movies
 def getAttibutes(lst):
     attributes = [[]]
     i = 0
@@ -107,6 +107,7 @@ def getAttibutes(lst):
         attributes.append(movieAttributes(url))
         print(attributes[i])
         i +=1
+        # add a counter to view progress
         if i % 5 == 0:
             print(str(i) + ' out of ' + str(len(lst)) + ' movies done')
     del attributes[0]
@@ -115,7 +116,7 @@ def getAttibutes(lst):
 
 
 
-'''
+''' use this for timing chuncks of code
 import timeit
 start_time = timeit.default_timer()
 timeit.default_timer() - start_time
