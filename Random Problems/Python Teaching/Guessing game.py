@@ -3,7 +3,7 @@ from random import randint
 
 
 def guessingGame():
-    maxNum = int(input('Until what number would you like to guess (please enter a positive number? '))
+    maxNum = int(input('Until what number would you like to guess (please enter a positive number)? '))
     while maxNum < 1:
         maxNum = int(input('Please enter a positive number: '))
     comp = (randint(1, maxNum))
