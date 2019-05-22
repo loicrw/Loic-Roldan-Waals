@@ -186,10 +186,10 @@ for i in colMissing:
 
 X = X[['IMDb rating','year','metascore','Missing year', 'Missing metascore', 'Action', 'Animation', 'Mystery', 'PG', 'R']]
 
-#fitting sm
+# determining the best parameters for the ML models
 parameters = {'gamma': [0.001, 0.0001, 0.0005, 0.003, 0.005], 'C': [0.01, 0.03, 0.001, 0.003], 'kernel': ['linear', 'rbf']}
 sm = svm.SVR()
-gridsm = RandomizedSearchCV(sm, param_distributions =parameters, n_iter = 40, cv=3, scoring='r2')
+gridsm = RandomizedSearchCV(sm, param_distributions = parameters, n_iter = 40, cv = 3, scoring = 'r2')
 gridsm.fit(X, y)
 gridsm.best_params_
 scoresm = gridsm.best_score_
@@ -197,39 +197,39 @@ scoresm = gridsm.best_score_
 
 parameters = {'n_iter': [10,1,5,15,12]}
 nb = BayesianRidge()
-gridnb = RandomizedSearchCV(nb, param_distributions =parameters, n_iter = 5, cv=3, scoring='r2')
+gridnb = RandomizedSearchCV(nb, param_distributions = parameters, n_iter = 5, cv = 3, scoring = 'r2')
 gridnb.fit(X,y)
 scorenb = gridnb.best_score_
 gridnb.best_params_
-scoresnb = (cross_val_score(nb, X, y, cv=3, scoring='r2')).mean()
+scoresnb = (cross_val_score(nb, X, y, cv = 3, scoring = 'r2')).mean()
 
 
 parameters = {'fit_intercept': [1,0], 'n_jobs': [1,5,10,50,100]}
 lr = LinearRegression()
-gridlr = RandomizedSearchCV(lr, param_distributions =parameters, n_iter = 10, cv=3, scoring='r2')
+gridlr = RandomizedSearchCV(lr, param_distributions = parameters, n_iter = 10, cv = 3, scoring = 'r2')
 gridlr.fit(X,y)
 scorelr = gridlr.best_score_
 gridlr.best_params_
-scoreslr = (cross_val_score(lr, X, y, cv=3, scoring='r2')).mean()
+scoreslr = (cross_val_score(lr, X, y, cv = 3, scoring = 'r2')).mean()
 
 
 parameters = {'n_estimators': [1,2,3,5,4,6,7], 'max_depth': [1], 'max_features': [None], 'max_leaf_nodes':[5,4,6]}
 rf = RandomForestRegressor()
-gridrf = RandomizedSearchCV(rf, param_distributions =parameters, n_iter = 21, cv=3, scoring='r2')
+gridrf = RandomizedSearchCV(rf, param_distributions = parameters, n_iter = 21, cv = 3, scoring = 'r2')
 gridrf.fit(X,y)
 scorerf = gridrf.best_score_
 gridrf.best_params_
-scoresrf = (cross_val_score(rf, X, y, cv=3, scoring='r2')).mean()
+scoresrf = (cross_val_score(rf, X, y, cv = 3, scoring = 'r2')).mean()
 
 
 parameters = {'learning_rate': [0.03,0.05,0.07], 'n_estimators': [30,50,70], 'max_features': [None], 'max_leaf_nodes':[5,4,6], 'max_depth': [1,2,5,10]}
 gb = GradientBoostingRegressor()
-gridgb = RandomizedSearchCV(gb, param_distributions =parameters, n_iter = 108, cv=3, scoring='r2')
+gridgb = RandomizedSearchCV(gb, param_distributions = parameters, n_iter = 108, cv = 3, scoring = 'r2')
 gridgb.fit(X,y)
 scoregb = gridgb.best_score_
 gridgb.best_params_
 gb = GradientBoostingRegressor(learning_rate = 0.01, n_estimators = 75)
-scoresgb = (cross_val_score(gb, X, y, cv=3, scoring='r2')).mean()
+scoresgb = (cross_val_score(gb, X, y, cv = 3, scoring = 'r2')).mean()
 
 
 def multipleAgg(X, y):
