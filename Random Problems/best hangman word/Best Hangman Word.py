@@ -42,8 +42,8 @@ words['unique'] = ["".join(set(x)) for x in words['words'].astype(str)]
 # generate a column for the length of all unique letters in each word
 words['length unique'] = words['unique'].str.len()
 
-# filter out all words that just use two letters
-words = words[words['length unique'] > minWordLength]
+# filter out short words
+words = words[words['length unique'] >= minWordLength]
 
 # #freq score is the sum of the frequency score
 # calculate the score per word
