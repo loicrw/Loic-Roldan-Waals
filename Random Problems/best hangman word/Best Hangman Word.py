@@ -1,18 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 14 12:36:47 2018
-
-@author: lroldanwaa001
-"""
-import timeit
-
-import numpy as np
 import pandas as pd
-
-''' for timing stuff:
-start_time = timeit.default_timer()
-timeit.default_timer() - start_time
-'''
 
 
 # #define file names
