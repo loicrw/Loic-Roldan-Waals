@@ -62,16 +62,47 @@ def create_ascending_number_filter(df):
 
 def create_three_pairs_filter(df):
     """
-    Shows when the last three digits are the same.
-    Note that the leading digit should be 0. Why? ¯\_(ツ)_/¯
+    Shows when three digits are the same.
+    Note that the other digit should be 0. Why? ¯\_(ツ)_/¯
 
     e.g.:
     - 04:44
-    - 03:33
+    - 11:01
     """
-    return ((df.ten_hours == 0) &
+    # this matches the cases where the ten hours are zero and
+    # the rest are all the same digit.
+    ten_hour_zero = (
+            (df.ten_hours == 0) &
             (df.hours == df.ten_minutes) &
-            (df.ten_minutes == df.minutes))
+            (df.ten_minutes == df.minutes)
+    )
+
+    # when the zero is in the hour position
+    hour_zero = (
+            (df.hours == 0) &
+            (df.ten_hours == df.ten_minutes) &
+            (df.ten_minutes == df.minutes)
+    )
+
+    # when the zero is in the ten minutes position
+    ten_minute_zero = (
+            (df.ten_minutes == 0) &
+            (df.ten_hours == df.hours) &
+            (df.hours == df.minutes)
+    )
+
+    # when the zero is in the minute position
+    minute_zero = (
+            (df.minutes == 0) &
+            (df.ten_hours == df.hours) &
+            (df.hours == df.ten_minutes)
+    )
+    return (
+        ten_hour_zero |
+        hour_zero |
+        ten_minute_zero |
+        minute_zero
+    )
 
 
 def create_exact_hour_filter(df):
