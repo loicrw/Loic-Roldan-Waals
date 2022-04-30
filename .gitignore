@@ -1,0 +1,5 @@
+venv/*
+.vscode/*
+Random Problems/The Impostor Problem/__pycache__/*
+*.pyc
+.DS_Store
