@@ -14,3 +14,5 @@ export GRAPHVIZ_DIR="/usr/local/Cellar/graphviz/<VERSION>" #3.0.0 in my case
 
 #finally run this 
 pip install pygraphviz --global-option=build_ext --global-option="-I$GRAPHVIZ_DIR/include" --global-option="-L$GRAPHVIZ_DIR/lib"``` 
+
+You can find the other topics here [example](https://github.com/loicrw/Random-problems/blob/master/Random%20Problems/best%20hangman%20word/google-10000-english-master/README.md)
