@@ -1,2 +1,5 @@
 remote_theme: jekyll/minima
 skin: dark
+markdown: kramdown
+highlighter: rouge
+    input: GFM
