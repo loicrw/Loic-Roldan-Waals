@@ -1,4 +1,2 @@
-remote_theme: minima
-markdown: kramdown
-highlighter: rouge
-future: true
+remote_theme: jekyll/minima
+ skin: dark
