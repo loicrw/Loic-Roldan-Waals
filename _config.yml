@@ -1,2 +1,12 @@
+title: Loïc Roldán Waals
+description: Data Scientist
+
+github_username:  loicrw
+
 theme: minima
-skin: dark
+
+# markdown: GFM
+
+collections:
+  notes:
+    output: true
