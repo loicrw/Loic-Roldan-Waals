@@ -43,4 +43,4 @@ Given our requirements, we need a method for ranking which words are better than
 
 The latter point is important as adding more letters just gives the guesser more opportunities to guess correctly. 
 
-If we take all of these points into account we get the list mentioned at the beginning. Please find the code [here](https://github.com/loicrw/Loic-Roldan-Waals/blob/master/random_problems/best_hangman_word/Best%20Hangman%20Word.py)
+If we take all of these points into account we get the list mentioned at the beginning. Please find the code [here](https://github.com/loicrw/Loic-Roldan-Waals/tree/create_pages/topics/best_hangman_word).

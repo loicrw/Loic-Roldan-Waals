@@ -2,8 +2,8 @@ This is a collection of Random python problems that I decided to solve
 
 # Projects
 Here are the links to each of the projects that I've worked on:
-- [The impostor problem](https://loicrw.github.io/Random-problems/random_problems/the_impostor_problem/)
-- [The best hangman word]()
+- [The impostor problem](https://loicrw.github.io/Loic-Roldan-Waals/topics/the_impostor_problem/)
+- [The best hangman word](https://loicrw.github.io/Loic-Roldan-Waals/topics/best_hangman_word/)
 - [Predicting personal movie ratings with IMDb data]()
 - [The longest 7-cell display word]()
 - [Python teaching material]()
