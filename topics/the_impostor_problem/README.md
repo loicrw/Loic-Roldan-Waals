@@ -6,7 +6,7 @@ This problem owes its name the the game "Among Us". In the game a minority of im
 - Whether you were the impostor in a previous round has no impact on being chosen in subsequent rounds.
 - The players do not change between rounds.
 
-If you want to jump straight to the interactive calculator, click [here](https://the-impostor-problem.streamlit.app/)
+If you want to jump straight to the interactive calculator, click [here](https://the-impostor-streak-calculator.streamlit.app/)
 
 ## Generalized Problem Statement 
 Usually a game of *Among Us* is played with 10 players and 2 impostors. However, we want to be able to answer the question for any arbitrary number of:
