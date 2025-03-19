@@ -6,4 +6,4 @@ def fix_state_order(state: tuple[int]) -> tuple[int]:
 
 
 def combine_state_and_masks(state: tuple[int], mask: tuple[int]) -> tuple[int]:
-    return tuple(np.array(state) * np.array(mask) + 1)
+    return tuple((np.array(state) * np.array(mask) + 1).tolist())

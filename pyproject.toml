@@ -1,0 +1,17 @@
+[project]
+dependencies = [
+    "beautifulsoup4",
+    "graphviz",
+    "numpy",
+    "pandas",
+    "plotly",
+    "pygraphviz",
+    "requests",
+    "scikit-learn",
+    "seaborn",
+    "streamlit",
+]
+name = "LOIC-ROLDAN-WAALS"
+version = "0.1.0"
+description = "A collection of random comments"
+readme = "README.md"

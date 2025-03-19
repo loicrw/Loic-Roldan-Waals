@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-
-# Imports
 from sklearn.model_selection import cross_val_score
-# from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import BayesianRidge, LinearRegression
 from sklearn.metrics import r2_score
 from sklearn import svm
